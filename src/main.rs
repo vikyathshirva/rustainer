@@ -1,5 +1,7 @@
 mod cli;
 mod errors;
+mod container;
+mod config;
 use errors::exit_with_retcode;
 use dotenv::dotenv;
 use std::process::exit;
@@ -10,7 +12,7 @@ fn main() {
     match cli::parse_args(){
         Ok(args) => {
             log::info!("{:?}", args);
-            exit_with_retcode(Ok(()))
+            exit_with_retcode(container::Container::start(args))
         },
         Err(e) => {
             log::error!("Error while passing arguments:\n\t{}", e);
