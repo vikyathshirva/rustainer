@@ -4,7 +4,10 @@ use std::process::exit;
 #[derive(Debug)]
 pub enum Errcode { // contains all possible error codes in the tool.
 
-    ArgumentInvalid(& 'static str)
+    ArgumentInvalid(& 'static str),
+    NotSupported(u8),
+    ContainerError(u8),
+
 
 }
 

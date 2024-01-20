@@ -6,6 +6,7 @@ use errors::exit_with_retcode;
 use dotenv::dotenv;
 use std::process::exit;
 
+#[macro_use] extern crate scan_fmt;
 
 fn main() {
     dotenv().ok();
